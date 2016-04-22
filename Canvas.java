@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Canvas extends JPanel{
 	
-	int carreX, carreY, h, w;
+	int carreX, carreY, h, w, recM;
 	Vector<Rectangle> mes_rec= new Vector<Rectangle>();
 
 	
@@ -33,14 +33,10 @@ public class Canvas extends JPanel{
         }
         
         public void deplacerRectangle(int x, int y){
-        	for (int i = 0; i < mes_rec.size(); i++ ) {
-				if (mes_rec.elementAt(i).contains(x,y)) {
-					mes_rec.elementAt(i).x = x - w/2;
-					mes_rec.elementAt(i).y = y - h/2;
-					//mes_rec.elementAt(i).add(new Rectangle(x-(w/2),y-(h/2),w,h));
-				}
-        	}
-        	repaint();
+        	
+					mes_rec.elementAt(recM).x = x - w/2;
+					mes_rec.elementAt(recM).y = y - h/2;
+			      	repaint();
         }
 
 		public void supprimerRectangle(int x, int y) {
@@ -50,6 +46,16 @@ public class Canvas extends JPanel{
 				}
 			}
 			repaint();
+			
+		}
+
+		public void setrecM(int x, int y) {
+			// TODO Auto-generated method stub
+			for (int i = 0; i < mes_rec.size(); i++ ) {
+				if (mes_rec.elementAt(i).contains(x,y)) {
+					recM = i;
+				}
+			}
 			
 		}
 }

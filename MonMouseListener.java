@@ -26,6 +26,7 @@ public class MonMouseListener implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		canvas.setrecM(e.getX(),e.getY());
 	}
 
 	@Override
